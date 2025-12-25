@@ -47,6 +47,19 @@ try:
 except ImportError:
     pass
 
+try:
+    from toga_winforms.dialogs import QuestionDialog, MessageDialog
+    from System.Windows.Forms import DialogResult, MessageBoxButtons, MessageBoxIcon
+    def __patch_init(self, title, message):
+        MessageDialog.__init__(
+            self,
+            title,
+            message,
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Warning,
+            success_result=DialogResult.Yes,
+        )
+    QuestionDialog.__init__ = __patch_init
 
 class MakeNumber(toga.App):
     def startup(self):

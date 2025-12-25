@@ -51,5 +51,22 @@ try:
             success_result=DialogResult.Yes,
         )
     QuestionDialog.__init__ = __patch_init
-except:
+except ImportError:
+    pass
+
+try:
+    from toga_gtk.dialogs import QuestionDialog, MessageDialog
+    from toga_gtk.libs import Gtk
+    
+    def __patch_init(self, title, message):
+        MessageDialog.__init__(
+            self,
+            title=title,
+            message=message,
+            message_type=Gtk.MessageType.WARNING,
+            buttons=Gtk.ButtonsType.YES_NO,
+            success_result=Gtk.ResponseType.YES,
+        )
+    QuestionDialog.__init__ = __patch_init
+except ImportError:
     pass

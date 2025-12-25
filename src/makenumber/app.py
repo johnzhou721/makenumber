@@ -172,6 +172,7 @@ class MakeNumber(toga.App):
             )
             self.numberbox.add(number_button)
             try:
+                import toga_android
                 number_button.width = 67
             except ImportError:
                 pass

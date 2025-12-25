@@ -27,15 +27,13 @@ class MakeNumber(toga.App):
                     on_press=lambda widget, op=op: self.button_handler(widget, op),
                 )
             )
-            try:
-                import toga_android
+            if toga.platform.current_platform == "android":
                 # Android prioritizes touchability, and hints buttons
                 # to a larger minimum size.  But it's too large, so we
                 # break the rules here a bit to avoid overflow, opting for
                 # a smaller yet still not "just fitting" size.
                 button.width = 67
-            except ImportError:
-                pass
+
         self.numberbox = toga.Box(style=Pack(direction=ROW, gap=10, justify_content=CENTER))
         self.target = toga.Label("Target:")
 
@@ -131,11 +129,12 @@ class MakeNumber(toga.App):
                 on_press=lambda widget, number=number: self.button_handler(widget, number),
             )
             self.numberbox.add(number_button)
-            try:
-                import toga_android
+            if toga.platform.current_platform == "android":
+                # Android prioritizes touchability, and hints buttons
+                # to a larger minimum size.  But it's too large, so we
+                # break the rules here a bit to avoid overflow, opting for
+                # a smaller yet still not "just fitting" size.
                 number_button.width = 67
-            except ImportError:
-                pass
         for child in self.opbox.children:
             child.enabled = True
         self.undo_button.enabled = False

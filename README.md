@@ -9,3 +9,12 @@ consider** [becoming a financial member of BeeWare](https://beeware.org/membersh
 A game where numbers are provided from which to use +, -, *, /, and parenthesis to make other numbers from.
 
 ![Screenshot of Make Number](./Screenshot.png)
+
+To run as-is:
+
+```
+pip install briefcase
+briefcase dev
+```
+
+For other uses (mobile, package), etc. see the Briefcase documentation.

@@ -6,6 +6,7 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW, CENTER, START, END
 from .generate_expression import generate_expression
+# This is a monkeypatch for Toga backends that is a destructive QuestionDialog.
 from . import compat
 
 class MakeNumber(toga.App):

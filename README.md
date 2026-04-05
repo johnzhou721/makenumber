@@ -8,4 +8,4 @@ consider** [becoming a financial member of BeeWare](https://beeware.org/membersh
 
 A game where numbers are provided from which to use +, -, *, /, and parenthesis to make other numbers from.
 
-![Screenshot of Make Number](./Screenshot 2026-04-05 at 14.46.18.png)
+![Screenshot of Make Number](./Screenshot.png)
